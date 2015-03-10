@@ -76,5 +76,12 @@ module.exports = {
     jsSrc: dest + '/*.js',
     dest: dest
   },
-  clean: dest
+  clean: dest,
+  rev: {
+    src: dest + '/**/*.*',
+    settings: {
+      ignore: ['.php', '/style.css', '/screenshot.png', '.pot', '.md', '.html', '.ico', '.xml', '.txt', '/apple-touch-icon-precomposed.png']
+    },
+    dest: dest
+  }
 };
