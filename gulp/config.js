@@ -68,6 +68,9 @@ module.exports = {
       }
     ]
   },
+  coffeelint: {
+    src: src + '/assets/scripts/**/*.coffee'
+  },
   production: {
     cssSrc: dest + '/*.css',
     jsSrc: dest + '/*.js',

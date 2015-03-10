@@ -7,4 +7,5 @@ gulp.task("watch", ["watchify", "browserSync"], function() {
   gulp.watch(config.templates.HTML.src, ["templates:HTML"]);
   gulp.watch(config.templates.PHP.src, ["templates:PHP"]);
   gulp.watch(config.staticFiles.src, ["staticFiles"]);
+  gulp.watch(config.coffeelint.src, ['coffeelint']);
 });
