@@ -18,8 +18,15 @@ module.exports = {
     dest: dest + "/assets/images"
   },
   templates: {
-    src: src + "/templates/**/*.jade",
-    dest: dest
+    HTML: {
+      src: [src + "/templates/**/*.jade",
+      "!" + src + "/templates/**/*.php.jade"],
+      dest: dest
+    },
+    PHP: {
+      src: src + "/templates/**/*.php.jade",
+      dest: dest
+    },
   },
   staticFiles: {
     src: src + "/static/**",

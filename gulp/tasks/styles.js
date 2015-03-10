@@ -11,7 +11,8 @@ gulp.task('styles', ['images'], function() {
     .pipe(sourcemaps.init())
     .pipe(stylus({
       use: nib(),
-      compress: true
+      compress: true,
+      'include css': true
     }))
     .on('error', handleErrors)
     .pipe(sourcemaps.write())
