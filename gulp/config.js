@@ -53,7 +53,7 @@ module.exports = {
         entries: src + "/assets/scripts/app.coffee",
         dest: dest + "/assets/scripts",
         outputName: "app.js",
-        extensions: [".coffee", ".hbs"]
+        extensions: [".coffee"]
       }
     ]
   },
