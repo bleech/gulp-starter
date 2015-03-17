@@ -28,23 +28,12 @@ module.exports = {
       dest: dest
     },
   },
-  staticFiles: {
-    src: src + "/static/**",
-    dest: dest
-  },
-  iconFonts: {
-    name: 'Gulp Starter Icons',
-    src: src + '/assets/icons/*.svg',
-    dest: dest + '/assets/fonts',
-    sassDest: src + '/assets/styles',
-    template: './gulp/tasks/iconFont/template.sass.swig',
-    sassOutputName: '_icons.sass',
-    fontPath: 'fonts',
-    className: 'icon',
-    options: {
-      fontName: 'Post-Creator-Icons',
-      appendCodepoints: true,
-      normalize: false
+  copy: {
+    base: {
+      src: [
+        src + "/static/**/*.*"
+      ],
+      dest: dest
     }
   },
   browserify: {
@@ -55,19 +44,29 @@ module.exports = {
         dest: dest + "/assets/scripts",
         outputName: "app.js",
         extensions: [".coffee", ".hbs"]
-      }, {
-        entries: src + "/assets/scripts/vendor.coffee",
-        dest: dest + "/assets/scripts",
-        outputName: "vendor.js",
-        extensions: [".coffee", ".hbs"]
-      }, {
-        entries: src + "/assets/scripts/head.coffee",
-        dest: dest + "/assets/scripts",
-        outputName: "head.js",
-        extensions: [".coffee", ".hbs"]
       }
     ]
   },
+  concat: {
+    headJS: {
+      src: [
+      ],
+      name: 'head.js',
+      dest: dest + '/assets/scripts/'
+    },
+    vendorJS: {
+      src: [
+      ],
+      name: 'vendor.js',
+      dest: dest + '/assets/scripts/'
+    },
+    vendorCSS: {
+      src: [
+      ],
+      name: 'vendor.css',
+      dest: dest + '/assets/styles'
+    }
+  }
   coffeelint: {
     src: src + '/assets/scripts/**/*.coffee'
   },

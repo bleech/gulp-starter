@@ -6,6 +6,13 @@ gulp.task("watch", ["watchify", "browserSync"], function() {
   gulp.watch(config.images.src, ["images"]);
   gulp.watch(config.templates.HTML.src, ["templates:HTML"]);
   gulp.watch(config.templates.PHP.src, ["templates:PHP"]);
-  gulp.watch(config.staticFiles.src, ["staticFiles"]);
   gulp.watch(config.coffeelint.src, ['coffeelint']);
+
+  Object.keys(config.copy).forEach(function(key) {
+    gulp.watch(config.copy[key].src, ['copy:' + key]);
+  });
+
+  Object.keys(config.concat).forEach(function(key) {
+    gulp.watch(config.concat[key].src, ['concat:' + key]);
+  });
 });

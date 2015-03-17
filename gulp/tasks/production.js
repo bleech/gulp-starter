@@ -5,6 +5,6 @@ var runSequence = require('run-sequence');
 gulp.task('production', function(cb){
   // This runs only if the karma tests pass
   return runSequence(['clean'],
-  ['coffeelint', 'staticFiles', 'templates', 'images', 'iconFont', 'minifyCss', 'uglifyJs'],
+  ['coffeelint', 'copy', 'templates', 'images', 'iconFont', 'minifyCss', 'uglifyJs', 'concat'],
   ['rev'], cb);
 });
