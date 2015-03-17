@@ -6,46 +6,15 @@
     "type": "git",
     "url": "git://github.com/bleech/gulp-starter.git"
   },
-  "//": [
-    "The following 'underscore' example demonstrates exposing a module included ",
-    "by another module. If you were to npm install underscore separately and ",
-    "require('underscore'), you'd end up with two copies in your bundle. The one",
-    "you installed, and the one that shipped with another package (backbone in ",
-    "this example). This is an edge case and should rarely happen.",
-    "",
-    "The 'plugin' example makes that file requireable with `require('plugin')`,",
-    "and available to browserify-shim as 'plugin' on line 30."
-  ],
-  "browser": {
-    "jquery": "./src/assets/scripts/vendor/jquery-1.11.1.js",
-    "plugin": "./src/assets/scripts/vendor/jquery-plugin.js",
-    "modernizr": "./src/assets/scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"
-  },
   "browserify": {
     "transform": [
-      "browserify-shim",
       "coffeeify",
       "hbsfy"
     ]
   },
-  "browserify-shim": {
-    "plugin": {
-      "exports": "plugin",
-      "depends": [
-        "jquery:$"
-      ]
-    },
-    "modernizr": {
-      "exports": "Modernizr"
-    },
-    "jquery": {
-      "exports": "jQuery"
-    }
-  },
   "devDependencies": {
     "browser-sync": "~1.3.6",
     "browserify": "^8.0.2",
-    "browserify-shim": "^3.8.2",
     "coffee-script": "^1.8.0",
     "coffeeify": "~0.7.0",
     "del": "^0.1.3",

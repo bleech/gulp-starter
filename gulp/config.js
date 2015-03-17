@@ -60,12 +60,15 @@ module.exports = {
   concat: {
     headJS: {
       src: [
+        vendorSrc + '/modernizr-2.8.3.min.js',
+        vendorSrc + '/respond-1.4.2.min.js'
       ],
       name: 'head.js',
       dest: dest + '/assets/scripts/'
     },
     vendorJS: {
       src: [
+        vendorSrc + '/jquery-1.11.2.min.js'
       ],
       name: 'vendor.js',
       dest: dest + '/assets/scripts/'
