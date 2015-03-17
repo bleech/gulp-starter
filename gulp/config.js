@@ -1,5 +1,6 @@
 var dest = "./build";
 var src = "./src";
+var vendorSrc = src + '/vendor';
 
 module.exports = {
   browserSync: {
@@ -12,6 +13,15 @@ module.exports = {
   styles: {
     src: src + "/assets/styles/*.styl",
     dest: dest + "/assets/styles"
+  },
+  bootstrap: {
+    src: src + "/assets/styles/bootstrap.scss",
+    settings: {
+      includePaths: [
+        vendorSrc + '/bootstrap/stylesheets'
+      ]
+    },
+    dest: vendorSrc,
   },
   images: {
     src: src + "/assets/images/**",
@@ -62,11 +72,12 @@ module.exports = {
     },
     vendorCSS: {
       src: [
+        vendorSrc + '/bootstrap.css'
       ],
       name: 'vendor.css',
       dest: dest + '/assets/styles'
     }
-  }
+  },
   coffeelint: {
     src: src + '/assets/scripts/**/*.coffee'
   },

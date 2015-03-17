@@ -13,7 +13,7 @@ var copyThis = function(bundleConfig) {
 };
 
 Object.keys(config).forEach(function(key) {
-  gulp.task('copy:' + key, concatThis(config[key]));
+  gulp.task('copy:' + key, copyThis(config[key]));
 });
 
 gulp.task('copy', Object.keys(config).map(function(key) { return 'copy:' + key }));
