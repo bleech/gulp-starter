@@ -55,7 +55,6 @@
     "gulp-coffeelint": "^0.4.0",
     "gulp-concat": "^2.5.2",
     "gulp-filesize": "0.0.6",
-    "gulp-iconfont": "^1.0.0",
     "gulp-imagemin": "^0.6.2",
     "gulp-jade": "^0.10.0",
     "gulp-jade-php": "git://github.com/bleech/gulp-jade-php.git#87e4ca37242943d260b9985edca987335e00a79c",
