@@ -30,7 +30,8 @@ module.exports = {
   templates: {
     HTML: {
       src: [src + "/templates/**/*.jade",
-      "!" + src + "/templates/**/*.php.jade"],
+      "!" + src + "/templates/**/*.php.jade",
+      "!" + src + "/templates/includes/**/*.jade"],
       dest: dest
     },
     PHP: {

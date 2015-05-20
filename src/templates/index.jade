@@ -15,6 +15,7 @@ html.no-js
     meta(name="description", content="")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     script(src='assets/scripts/head.js')
+    link(rel='stylesheet', href='assets/styles/vendor.css')
     link(rel='stylesheet', href='assets/styles/app.css')
   body
     //if lt IE 7
@@ -26,40 +27,12 @@ html.no-js
         | to improve your experience.
     .header-container
       header.wrapper.clearfix
-        h1.title h1.title
-        nav
-          ul
-            li
-              a(href="#") nav ul li a
-            li
-              a(href="#") nav ul li a
-            li
-              a(href="#") nav ul li a
+        include ./includes/header.jade
     .main-container
       .main.wrapper.clearfix
-        article
-          header
-            h1 article header h1
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.
-          section
-            h2 article section h2
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.
-          section
-            h2 article section h2
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.
-          footer
-            h3 article footer h3
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.
-        aside
-          h3 aside
-          p
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.
+        include ./includes/content.jade
     .footer-container
       footer.wrapper
-        h3 footer
+        include ./includes/footer.jade
     script(src='assets/scripts/vendor.js')
     script(src='assets/scripts/app.js')
