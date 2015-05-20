@@ -1,18 +1,19 @@
 var gulp       = require("gulp");
 var config     = require("../config");
+var watch      = require('gulp-watch');
 
 gulp.task("watch", ["watchify", "browserSync"], function() {
-  gulp.watch(config.styles.src, ["styles"]);
-  gulp.watch(config.images.src, ["images"]);
-  gulp.watch(config.templates.HTML.src, ["templates:HTML"]);
-  gulp.watch(config.templates.PHP.src, ["templates:PHP"]);
-  gulp.watch(config.coffeelint.src, ['coffeelint']);
+  watch(config.styles.src, function() { gulp.start("styles"); });
+  watch(config.images.src, function() { gulp.start("images"); });
+  watch(config.templates.HTML.src, function() { gulp.start("templates:HTML"); });
+  watch(config.templates.PHP.src, function() { gulp.start("templates:PHP"); });
+  watch(config.coffeelint.src, function() { gulp.start('coffeelint'); });
 
   Object.keys(config.copy).forEach(function(key) {
-    gulp.watch(config.copy[key].src, ['copy:' + key]);
+    watch(config.copy[key].src, function() { gulp.start('copy:' + key); });
   });
 
   Object.keys(config.concat).forEach(function(key) {
-    gulp.watch(config.concat[key].src, ['concat:' + key]);
+    watch(config.concat[key].src, function() { gulp.start('concat:' + key); });
   });
 });
