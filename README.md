@@ -58,7 +58,6 @@ The first time you run the app, you'll also need to generate the iconFont, since
 gulp iconFont
 ```
 
-<<<<<<< HEAD
 ### Install npm dependencies
 =======
 After that, just run the `default` gulp task with:
@@ -100,7 +99,6 @@ or
 ```
 
 #### Production files
->>>>>>> upstream/master
 
 There is also a `production` task you can run:
 ```
