@@ -1,24 +1,31 @@
 var dest = "./build";
 var src = "./src";
 var vendorSrc = src + '/vendor';
+var bowerSrc = './bower_components';
+var staticHost = 'gulp-starter.dev';
+
+var nib = require('nib');
 
 module.exports = {
   browserSync: {
-    server: {
-      baseDir: [dest, src]
-    },
-    files: [dest + "/**", "!" + dest + "/**.map"],
-    open: false
+    proxy: staticHost,
+    open: false,
+    ghostMode: false
   },
   styles: {
     src: src + "/assets/styles/*.styl",
-    dest: dest + "/assets/styles"
+    dest: dest + "/assets/styles",
+    settings: {
+      use: nib(),
+      compress: true,
+      'include css': true
+    }
   },
   bootstrap: {
     src: src + "/assets/styles/bootstrap.scss",
     settings: {
       includePaths: [
-        vendorSrc + '/bootstrap/stylesheets'
+        bowerSrc + '/bootstrap-sass/assets/stylesheets'
       ]
     },
     dest: vendorSrc,
@@ -61,15 +68,15 @@ module.exports = {
   concat: {
     headJS: {
       src: [
-        vendorSrc + '/modernizr-2.8.3.min.js',
-        vendorSrc + '/respond-1.4.2.min.js'
+        bowerSrc + '/modernizr/modernizr.js',
+        bowerSrc + '/respond/dest/respond.min.js'
       ],
       name: 'head.js',
       dest: dest + '/assets/scripts/'
     },
     vendorJS: {
       src: [
-        vendorSrc + '/jquery-1.11.2.min.js'
+        bowerSrc + 'jquery/dist//jquery.min.js'
       ],
       name: 'vendor.js',
       dest: dest + '/assets/scripts/'
@@ -94,7 +101,9 @@ module.exports = {
   rev: {
     src: dest + '/**/*.*',
     settings: {
-      ignore: ['.php', '/style.css', '/screenshot.png', '.pot', '.md', '.html', '.ico', '.xml', '.txt', '/apple-touch-icon-precomposed.png']
+      dontRenameFile: ['.php', '.md', '.json', '/favicon.ico', '/favicon.png', '/apple-touch-icon-180x180.png', '/apple-touch-icon.png', '.woff', '.ttf', '.svg', '.eot', '.otf', '.htc'],
+      dontUpdateReference: ['.php', '.md', '.json', '/favicon.ico', '/favicon.png', '/apple-touch-icon-180x180.png', '/apple-touch-icon.png', '.woff', '.ttf', '.svg', '.eot', '.otf', '.htc'],
+      dontSearchFile: ['vendor.js']
     },
     dest: dest
   }
