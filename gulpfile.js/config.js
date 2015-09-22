@@ -35,6 +35,8 @@ module.exports = {
     dest: dest + "/assets/images"
   },
   templates: {
+    dataPath: src + '/data',
+    dataFiles: ['global'],
     HTML: {
       src: [src + "/templates/**/*.jade",
       "!" + src + "/templates/**/*.php.jade",
