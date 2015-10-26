@@ -7,13 +7,21 @@ var staticHost = 'gulp-starter.dev';
 var nib = require('nib');
 
 module.exports = {
+  general: {
+    dest: dest,
+    src: src,
+    root: './'
+  },
   browserSync: {
     proxy: staticHost,
     open: false,
     ghostMode: false
   },
   styles: {
-    src: src + "/assets/styles/*.styl",
+    src: [
+      src + "/assets/styles/*.styl",
+      src + "/modules/**/*.styl",
+    ],
     dest: dest + "/assets/styles",
     settings: {
       use: nib(),
@@ -78,7 +86,7 @@ module.exports = {
     },
     vendorJS: {
       src: [
-        bowerSrc + 'jquery/dist//jquery.min.js'
+        bowerSrc + '/jquery/dist/jquery.min.js'
       ],
       name: 'vendor.js',
       dest: dest + '/assets/scripts/'

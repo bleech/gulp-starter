@@ -1,0 +1,9 @@
+body(class=d.baseClasses)
+  | THIS IS THE BODY YEAH
+  != area.mainContent
+  if d.styles && d.styles.body
+    for style in d.styles.body
+      link(href=style rel='stylesheet')
+  if d.scripts && d.scripts.body
+    for script in d.scripts.body
+      script(src=script)

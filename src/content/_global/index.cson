@@ -1,0 +1,14 @@
+scripts:
+  head: [
+    'assets/scripts/head.js'
+  ]
+  body: [
+    'assets/scripts/vendor.js'
+    'main.js'
+  ]
+styles:
+  body: [
+    'assets/styles/vendor.css'
+    'assets/styles/app.css'
+    # 'main.css'
+  ]

@@ -2,7 +2,7 @@ var gulp       = require("gulp");
 var config     = require("../config");
 var watch      = require('gulp-watch');
 
-gulp.task("watch", ["watchify", "browserSync"], function() {
+gulp.task("watch", ["webpackWatch", "browserSync"], function() {
   watch(config.styles.src, function() { gulp.start("styles"); });
   watch(config.images.src, function() { gulp.start("images"); });
   watch(config.templates.HTML.src, function() { gulp.start("templates:HTML"); });

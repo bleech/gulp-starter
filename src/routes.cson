@@ -1,0 +1,10 @@
+routes:
+  '/':
+    config: 'default'
+    dataStore: 'Page#_root'
+  '/foo/':
+    config: 'default'
+    dataStore: 'Page#foo'
+  '/bar/':
+    config: 'default'
+    dataStore: 'Page#bar'

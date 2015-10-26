@@ -1,0 +1,19 @@
+main_layout:
+  name: 'layout'
+  dataStore: 'Global#global'
+  modules:
+    head:
+      layoutHead:
+        name: 'layoutHead'
+    body:
+      layoutBody:
+        name: 'layoutBody'
+        modules:
+          mainContent:
+            navigation:
+              name: 'navigation'
+            pageContent:
+              name: 'pageContent'
+              dataStore: 'Page#'
+            contentSlider:
+              name: 'contentSlider'
