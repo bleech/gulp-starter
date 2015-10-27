@@ -1,3 +1,4 @@
 renderUrl = require './helpers/renderUrl'
+initModules = require './helpers/initModules'
 
-renderUrl('/')
+initModules window.constructionPlan

@@ -11,6 +11,6 @@ module.exports = (url) ->
   route = routes[url]
   dataStores.Page.setCurrentPage route.dataStore.split('#')[1]
   config = require "config/#{route.config}.cson"
-  constructionPlan = buildConstructionPlan {0: config}, {}, dataStores
+  module.exports.constructionPlan = constructionPlan = buildConstructionPlan {0: config}, {}, dataStores
   html = renderModules constructionPlan
   html[0]
