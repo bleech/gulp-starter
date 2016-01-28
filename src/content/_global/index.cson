@@ -1,0 +1,38 @@
+rootPath: '/'
+scripts:
+  head: [
+    'assets/scripts/head.js'
+  ]
+  body: [
+    'assets/scripts/vendor.js'
+    'assets/scripts/main.js'
+  ]
+styles:
+  head: [
+    'assets/styles/vendor.css'
+    'assets/styles/main.css'
+  ]
+  body: []
+moduleOptions:
+  # moduleName:
+  facebookSdk:
+    # sdk js file path
+    jsSrc: '//connect.facebook.net/en_US/sdk.js'
+    # <script id='' />
+    id: 'facebook-jssdk'
+    # fb init options
+    init:
+      # appId: '961284803918299'
+      appId: '153035391727146'
+      xfbml: true
+      version: 'v2.5'
+  pinterestSdk:
+    # sdk js file path
+    jsSrc: '//assets.pinterest.com/sdk/sdk.js'
+    # <script id='' />
+    id: 'pinterest-jssdk'
+    # pinterest init options
+    init:
+      # appId: '4797143795942563920'
+      appId: 'insert app id here'
+      cookie: true

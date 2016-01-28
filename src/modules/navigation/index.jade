@@ -1,0 +1,8 @@
+div(class=d.baseClasses)
+  h3= d.navTitle
+  img.logo(src=require('./webpack.svg'))
+  nav
+    ul.nav.nav-pills
+      for item in d.items
+        li
+          a(href=item.href)= item.title

@@ -1,3 +1,4 @@
+var publicPath = '';
 var dest = "./build";
 var src = "./src";
 var vendorSrc = src + '/vendor';
@@ -7,22 +8,33 @@ var staticHost = 'gulp-starter.dev';
 var nib = require('nib');
 
 module.exports = {
+  general: {
+    dest: dest,
+    src: src,
+    root: './',
+    publicPath: publicPath + '/'
+  },
   browserSync: {
     proxy: staticHost,
     open: false,
     ghostMode: false
   },
-  styles: {
-    src: src + "/assets/styles/*.styl",
-    dest: dest + "/assets/styles",
-    settings: {
-      use: nib(),
-      compress: true,
-      'include css': true
-    }
-  },
+  // styles: {
+  //   src: [
+  //     src + "/assets/styles/*.styl",
+  //     src + "/modules/**/*.styl",
+  //   ],
+  //   dest: dest + "/assets/styles",
+  //   settings: {
+  //     use: nib(),
+  //     compress: true,
+  //     'include css': true
+  //   }
+  // },
   bootstrap: {
-    src: src + "/assets/styles/bootstrap.scss",
+    src: [
+      src + "/assets/styles/bootstrap.scss"
+    ],
     settings: {
       includePaths: [
         bowerSrc + '/bootstrap-sass/assets/stylesheets'
@@ -48,12 +60,33 @@ module.exports = {
       dest: dest
     },
   },
+  data: {
+    src: [
+      src + "/content/**/index.cson"
+    ],
+    dest: dest
+  },
   copy: {
     base: {
       src: [
         src + "/static/**/*.*"
       ],
       dest: dest
+    },
+    modules: {
+      src: [
+        src + "/content/**/*.*",
+        "!" + src + "/content/**/*.cson"
+      ],
+      base: src + '/content',
+      dest: dest + '/content'
+    },
+    mediaelement: {
+      src: [
+        bowerSrc + "/mediaelement/build/flashmediaelement.swf",
+        bowerSrc + "/mediaelement/build/silverlightmediaelement.xap"
+      ],
+      dest: dest + "/assets/swf"
     }
   },
   browserify: {
@@ -70,22 +103,36 @@ module.exports = {
   concat: {
     headJS: {
       src: [
-        bowerSrc + '/modernizr/modernizr.js',
-        bowerSrc + '/respond/dest/respond.min.js'
+        bowerSrc + '/html5shiv/dist/html5shiv.min.js',
+        bowerSrc + '/respond/dest/respond.min.js',
+        bowerSrc + '/modernizr/modernizr.js'
       ],
       name: 'head.js',
       dest: dest + '/assets/scripts/'
     },
     vendorJS: {
       src: [
-        bowerSrc + 'jquery/dist//jquery.min.js'
+        vendorSrc + '/trim.js',
+        vendorSrc + '/objectKeys.js',
+        bowerSrc + '/jquery/dist/jquery.min.js',
+        bowerSrc + '/df-visible/jquery.visible.min.js',
+        bowerSrc + '/flexslider/jquery.flexslider.js',
+        bowerSrc + '/mediaelement/build/mediaelement-and-player.min.js',
+        bowerSrc + '/picturefill/dist/picturefill.js',
+        bowerSrc + '/jquery-throttle-debounce/jquery.ba-throttle-debounce.min.js',
+        bowerSrc + '/bootstrap-sass/assets/javascripts/bootstrap.min.js',
+        bowerSrc + '/js-cookie/src/js.cookie.js',
+        bowerSrc + '/browserdetection/src/browser-detection.js',
+        vendorSrc + '/polyfills.js'
       ],
       name: 'vendor.js',
       dest: dest + '/assets/scripts/'
     },
     vendorCSS: {
       src: [
-        vendorSrc + '/bootstrap.css'
+        vendorSrc + '/bootstrap.css',
+        bowerSrc + '/flexslider/flexslider.css',
+        bowerSrc + '/mediaelement/build/mediaelementplayer.css'
       ],
       name: 'vendor.css',
       dest: dest + '/assets/styles'
@@ -103,9 +150,11 @@ module.exports = {
   rev: {
     src: dest + '/**/*.*',
     settings: {
-      dontRenameFile: ['.php', '.md', '.json', '/favicon.ico', '/favicon.png', '/apple-touch-icon-180x180.png', '/apple-touch-icon.png', '.woff', '.ttf', '.svg', '.eot', '.otf', '.htc'],
-      dontUpdateReference: ['.php', '.md', '.json', '/favicon.ico', '/favicon.png', '/apple-touch-icon-180x180.png', '/apple-touch-icon.png', '.woff', '.ttf', '.svg', '.eot', '.otf', '.htc'],
-      dontSearchFile: ['vendor.js']
+      dontRenameFile: ['.php', '.md', '.json', '/favicon.ico', '/favicon.png', '/apple-touch-icon-180x180.png',
+      '/apple-touch-icon.png', '.woff', '.woff2', '.ttf', '.ttc', '.svg', '.eot', '.otf', '.htc', '.html', '.txt', '.xml', '.jpg', '.png', '.swf', '/content/_global/sharingImages/*.jpg'],
+      dontUpdateReference: ['.php', '.md', '.json', '/favicon.ico', '/favicon.png', '/apple-touch-icon-180x180.png',
+      '/apple-touch-icon.png', '.woff', '.woff2', '.ttf', '.ttc', '.svg', '.eot', '.otf', '.htc', '.html', '.txt', '.xml', '.jpg', '.png', '.swf', '/content/_global/sharingImages/*.jpg'],
+      dontSearchFile: ['vendor.js', 'head.js']
     },
     dest: dest
   }
