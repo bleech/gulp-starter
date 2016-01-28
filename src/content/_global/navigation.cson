@@ -1,0 +1,12 @@
+rootPath: '/'
+navTitle: 'Navigation'
+items: [
+  title: 'Home'
+  href: '/'
+,
+  title: 'Foo'
+  href: '/foo'
+,
+  title: 'Bar'
+  href: '/bar'
+]

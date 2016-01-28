@@ -10,6 +10,7 @@ var paths = {
   dest: path.resolve(config.dest),
   src: path.resolve(config.src),
   root: path.resolve(config.root),
+  publicPath: config.publicPath
 };
 
 var webpackServerConfig = require('../webpack/webpack.config.server')(paths);

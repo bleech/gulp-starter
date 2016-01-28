@@ -1,8 +1,10 @@
+clone = require 'clone'
+
 fetch = (config = {}, parentData = {}, dataStores) ->
   if config.dataStore
     data = getDataFromDataStore config.dataStore, config.dataStoreArgs, dataStores
     data = getSingePostData config, data
-  else if config.data?.d and config.data.d.length
+  else if config.data?.d
     data = config.data.d
   else if config.customData
     data = config.customData
@@ -11,6 +13,7 @@ fetch = (config = {}, parentData = {}, dataStores) ->
     data = parentData.d or parentData
   if config.dataMapping
     data = mapData data, config.dataMapping
+  data = addGlobalData data
   data
 
 getDataFromDataStore = (dataStoreCmd, dataStoreArgs, dataStores) ->
@@ -33,6 +36,15 @@ mapData = (data, mapping) ->
       delete data[from]
   data
 
-
+addGlobalData = (data) ->
+  data = clone data
+  mods = require.context 'content/_global', true, /\.cson$/
+  globals = {}
+  globals = mods.keys().reduce (globs, mod) ->
+    globs[mod.replace('./', '').replace('.cson', '')] = mods(mod)
+    globs
+  , {}
+  data.globals = globals
+  data
 
 module.exports = fetch

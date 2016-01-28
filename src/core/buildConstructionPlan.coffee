@@ -1,7 +1,7 @@
 merge = require 'merge'
 clone = require 'clone'
 Array::dict = ->
-  @reduce ((dict, obj, i) -> dict[i] = obj if obj[key]?; return dict), {}
+  @reduce ((dict, obj, i) -> dict[i] = obj; return dict), {}
 
 setDefaultData = require './setDefaultData'
 setData = require './setData'
@@ -38,9 +38,9 @@ fromFlexibleContent = (areaName, config = {}, parentData = {}) ->
   if Array.isArray parentData.d[areaName]
     modules = parentData.d[areaName].map (dynamicModuleData) ->
       output =
-        name: $dynamicModuleData.acf_fc_layout
+        name: dynamicModuleData.acf_fc_layout
         data:
-          d: $dynamicModuleData
+          d: dynamicModuleData
   if modules.length
     modules = modules.dict()
     modules = fromConfig({0: modules}, {})[0]

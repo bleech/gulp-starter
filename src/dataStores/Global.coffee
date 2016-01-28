@@ -1,5 +1,5 @@
 class PageDataStore
   @fetch: (name, params...) ->
-    require "../content/_global/index.cson"
+    require "../content/_global/#{name}.cson"
 
 module.exports = PageDataStore

@@ -5,7 +5,7 @@ initModules = (config) ->
         initModules moduleConfig.modules
       ids = [].concat moduleConfig.id
       try
-        Lib = require "../modules/#{moduleConfig.name}/script"
+        Lib = require "../modules/#{moduleConfig.name}/script.coffee"
         ids.forEach (id) ->
           $container = $(".module--#{id}")
           new Lib($container)

@@ -13,6 +13,7 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
     "bluebird": "^2.10.2",
     "browser-sync": "^2.9.11",
     "browserify": "^10.2.6",
@@ -32,6 +33,7 @@
     "gulp-changed": "^0.4.1",
     "gulp-coffeelint": "^0.4.0",
     "gulp-concat": "^2.6.0",
+    "gulp-cson": "^0.3.1",
     "gulp-data": "^1.2.1",
     "gulp-filesize": "0.0.6",
     "gulp-imagemin": "^0.6.2",
@@ -68,6 +70,7 @@
     "nib": "^1.1.0",
     "pretty-hrtime": "^0.2.2",
     "require-dir": "^0.1.0",
+    "rsyncwrapper": "^1.0.0",
     "run-sequence": "^1.1.4",
     "style-loader": "^0.13.0",
     "stylus-loader": "^1.4.0",

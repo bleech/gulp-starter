@@ -1,5 +1,5 @@
 var gulp = require('gulp');
 
 gulp.task('default', ['clean', 'bootstrap'], function() {
-  return gulp.start(['coffeelint', 'styles', 'images', 'copy', 'concat', 'watch']);
+  return gulp.start(['data', 'coffeelint', 'images', 'copy', 'concat', 'watch']);
 });

@@ -1,5 +1,7 @@
 MODULES_PATH = '../modules'
 
+merge = require 'merge'
+
 renderModules = (config) ->
   result = {}
   for areaName, modules of config
@@ -12,7 +14,7 @@ renderModules = (config) ->
   result
 
 renderModule = (config) ->
-  path = "#{config.name}/#{config.view}.jade"
+  path = "#{config.name}/#{config.view}"
   # REQUIRE STYL FILES AND ADD LOCAL CLASSES
   # cssPath = "#{config.name}"
   # localClasses = loadStyle(cssPath)
@@ -21,12 +23,27 @@ renderModule = (config) ->
   renderFile config.data, path
 
 renderFile = (data, path) ->
-  require("../modules/#{path}")(data)
+  context = addHelpers data
+  require("../modules/#{path}.jade")(context)
 
 # loadStyle = (path) ->
 #   try
 #     require "../modules/#{path}/style.styl"
 #   catch error
 #     {}
+
+addHelpers = (data) ->
+  helpers = loadHelpers()
+  merge {}, data,
+    helpers: helpers
+
+loadHelpers = ->
+  mods = require.context 'viewHelpers', true, /\.jade$/
+  helpers = {}
+  helpers = mods.keys().reduce (globs, mod) ->
+    globs[mod.replace('./', '').replace('.jade', '')] = mods(mod)
+    globs
+  , {}
+  helpers
 
 module.exports = renderModules

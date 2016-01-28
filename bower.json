@@ -6,8 +6,20 @@
   ],
   "dependencies": {
     "bootstrap-sass": "twitter-bootstrap-sass#~3.3.5",
+    "flexslider": "~2.5.0",
     "jquery": "1.11.3",
+    "jquery-throttle-debounce": "*",
+    "js-cookie": "~2.0.4",
+    "mediaelement": "~2.18.2",
     "modernizr": "2.8.3",
-    "respond": "~1.4.2"
+    "picturefill": "~3.0.1",
+    "respond": "~1.4.2",
+    "selectivizr": "~1.0.2",
+    "html5shiv": "~3.7.3",
+    "browserdetection": "~0.3.3"
+
+  },
+  "devDependencies": {
+    "df-visible": "~1.2.0"
   }
 }

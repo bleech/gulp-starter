@@ -3,7 +3,6 @@ var prettifyTime = require('./prettifyTime')
 var handleErrors = require('./handleCompileErrors')
 
 module.exports = function(err, stats) {
-  console.log('err', err);
   if(err) throw new gutil.PluginError("webpack", err)
 
   var statColor = stats.compilation.warnings.length < 1 ? 'green' : 'yellow'
