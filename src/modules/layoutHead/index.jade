@@ -1,6 +1,9 @@
 head
   title Title
   meta(value='keywords' content='bleech stack, stack, bleech')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1')
+  meta(charset="UTF-8")
   if d.styles && d.styles.head
     for style in d.styles.head
       link(href=(d.rootPath + style) rel='stylesheet')
