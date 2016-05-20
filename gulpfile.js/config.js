@@ -4,6 +4,7 @@ var src = "./src";
 var vendorSrc = src + '/vendor';
 var bowerSrc = './bower_components';
 var staticHost = 'gulp-starter.dev';
+var stagingHost = ''; // TODO enter staging host for your project
 
 var nib = require('nib');
 
@@ -112,8 +113,6 @@ module.exports = {
     },
     vendorJS: {
       src: [
-        vendorSrc + '/trim.js',
-        vendorSrc + '/objectKeys.js',
         bowerSrc + '/jquery/dist/jquery.min.js',
         bowerSrc + '/df-visible/jquery.visible.min.js',
         bowerSrc + '/flexslider/jquery.flexslider.js',
@@ -157,5 +156,14 @@ module.exports = {
       dontSearchFile: ['vendor.js', 'head.js']
     },
     dest: dest
+  },
+  deploy: {
+    build: {
+      src: './build/',
+      dest: stagingHost,
+      exclude: [],
+      recursive: true,
+      syncDestIgnoreExcl: true
+    }
   }
 };

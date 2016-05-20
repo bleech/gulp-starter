@@ -11,6 +11,7 @@ class ViewModule extends BaseModule
     @setOptions?()
     @bindEvents?()
     @init?()
+    @_bindOnLoad()
 
   _setElements: ->
     for name, selector of @elements
@@ -20,6 +21,13 @@ class ViewModule extends BaseModule
     for definition, fn of @events
       [e, selector, empty] = definition.split /\s(.+)?/
       @$container.on e, selector, this[fn]
+
+  _bindOnLoad: ->
+    if @onLoad
+      if document.readyState = 'complete'
+        @onLoad()
+      else
+        $(window).load @onLoad
 
 
 module.exports = ViewModule
